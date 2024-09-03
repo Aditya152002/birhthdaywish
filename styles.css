@@ -1,0 +1,58 @@
+body {
+    background-color: #f3e5f5;
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+    padding: 50px;
+}
+
+.container {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+h1 {
+    color: #e91e63;
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+.message {
+    color: #555;
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.cake-image, .balloons-image {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+button {
+    background-color: #e91e63;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #d81b60;
+}
+
+.hidden {
+    display: none;
+}
+
+.surprise-text {
+    color: #ff5722;
+    font-size: 24px;
+    margin-top: 20px;
+}
