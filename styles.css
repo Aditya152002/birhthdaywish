@@ -1,89 +1,133 @@
+/* styles.css */
 body {
-    background: linear-gradient(to right, #ff9a9e, #fad0c4, #fad0c4);
-    font-family: 'Poppins', sans-serif;
-    text-align: center;
-    padding: 50px;
     margin: 0;
-    overflow-x: hidden;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(to bottom right, #ff99cc, #ffccff);
+    overflow: hidden;
 }
 
 .container {
-    background-color: #ffffff;
-    padding: 30px;
-    border-radius: 15px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-    max-width: 600px;
-    margin: 0 auto;
-    position: relative;
+    text-align: center;
+    margin-top: 20%;
+    color: #fff;
 }
 
-h1 {
-    font-family: 'Pacifico', cursive;
-    color: #ff4081;
-    font-size: 48px;
-    margin-bottom: 20px;
+.birthday-text {
+    font-size: 3em;
+    animation: fadeIn 2s ease-out;
 }
 
-.message {
-    color: #555;
-    font-size: 20px;
-    margin-bottom: 30px;
-}
-
-.cake-container {
-    position: relative;
-    margin-bottom: 30px;
-}
-
-.cake-image, .balloons-image {
-    width: 100%;
-    height: auto;
-    border-radius: 15px;
-    animation: float 6s ease-in-out infinite;
+.sub-text {
+    font-size: 1.5em;
+    margin-top: 10px;
+    animation: fadeIn 3s ease-out;
 }
 
 button {
-    background-color: #ff4081;
-    color: white;
-    padding: 15px 30px;
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 1.2em;
+    background-color: #ff6699;
+    color: #fff;
     border: none;
-    border-radius: 50px;
-    font-size: 18px;
+    border-radius: 5px;
     cursor: pointer;
-    transition: transform 0.3s ease;
+    animation: fadeIn 4s ease-out;
 }
 
 button:hover {
-    transform: scale(1.1);
+    background-color: #ff3366;
 }
 
-.hidden {
-    display: none;
+.balloons {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    height: 100vh;
+    pointer-events: none;
 }
 
-.surprise-text {
-    color: #ff5722;
-    font-size: 26px;
-    margin-top: 20px;
+.balloon {
+    width: 60px;
+    height: 80px;
+    background: #ff6666;
+    border-radius: 50%;
+    position: absolute;
+    bottom: -100px;
+    animation: float 6s ease-in-out infinite;
+    animation-delay: calc(-1s * var(--i));
 }
 
-@keyframes float {
-    0% { transform: translateY(0); }
-    50% { transform: translateY(-20px); }
-    100% { transform: translateY(0); }
-}
-
-/* Confetti */
-body::after {
+.balloon::before {
     content: '';
     position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    background-image: url('confetti.gif');
-    background-size: cover;
-    opacity: 0.3;
-    pointer-events: none;
-    z-index: -1;
+    bottom: -10px;
+    left: 50%;
+    width: 2px;
+    height: 20px;
+    background: #fff;
 }
+
+.balloon:nth-child(1) { background: #ff6666; left: 10%; --i: 1; }
+.balloon:nth-child(2) { background: #ffcc66; left: 25%; --i: 2; }
+.balloon:nth-child(3) { background: #66ff66; left: 40%; --i: 3; }
+.balloon:nth-child(4) { background: #66ccff; left: 55%; --i: 4; }
+.balloon:nth-child(5) { background: #ff66ff; left: 70%; --i: 5; }
+.balloon:nth-child(6) { background: #cc66ff; left: 85%; --i: 6; }
+
+@keyframes float {
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    50% {
+        transform: translateY(-300px);
+        opacity: 0.7;
+    }
+    100% {
+        transform: translateY(-600px);
+        opacity: 0;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+/* styles.css */
+/* Additional styles for stars and popping effect */
+.star, .clickable-balloon {
+    position: absolute;
+    cursor: pointer;
+    transition: transform 0.2s ease-out;
+}
+
+.star {
+    width: 20px;
+    height: 20px;
+    background-color: yellow;
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+}
+
+.clickable-balloon {
+    width: 40px;
+    height: 60px;
+    background-color: lightblue;
+    border-radius: 50%;
+}
+
+/* Pop effect */
+.pop {
+    transform: scale(0);
+    opacity: 0;
+}
+
